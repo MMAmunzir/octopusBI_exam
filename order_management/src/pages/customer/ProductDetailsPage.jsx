@@ -5,6 +5,10 @@ import Header from "../../components/Header.jsx";
 const ProductDetailsPage = () => {
   const { id } = useParams();
   const product = products.find((item) => item.id === parseInt(id));
+
+  function handleOrder() {
+    alert("order submitted");
+  }
   return (
     <>
       <Header />
@@ -17,17 +21,19 @@ const ProductDetailsPage = () => {
             <p>Price: ${product.price}</p>
           </div>
         </div>
-        <div className="col-span-2"></div>
-
-        {/* <h1>Product Details</h1>
-      <p>Product ID: {id}</p>
-      {product && (
-        <div>
-          <h2>{product.name}</h2>
-          <p>{product.description}</p>
-          <p>Price: ${product.price}</p>
+        <div className="col-span-2 mx-5 border-1 rounded-2xl p-5 bg-[#E8E7E7]">
+          <h1 className="font-semibold text-4xl">Order Details</h1>
+          <div className="flex justify-between text-2xl">
+            <p>Total Price:</p>
+            <p>{product.price}</p>
+          </div>
+          <button
+            onClick={handleOrder}
+            className="bg-blue-950 text-white p-2 rounded-xl cursor-pointer"
+          >
+            Place the order
+          </button>
         </div>
-      )} */}
       </div>
     </>
   );
